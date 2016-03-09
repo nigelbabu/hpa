@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -12,24 +14,8 @@
 <link rel='stylesheet' id='pique-style-css'  href='wp-content/themes/pique-wpcom/style.css' type='text/css' media='screen' />
 <link rel='stylesheet' id='pique-fonts-css'  href='https://fonts.googleapis.com/css?family=Lora%3A400%2C700%2C400italic%2C700italic%7CKarla%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
 <link rel='stylesheet' id='fontawesome-css'  href='wp-content/themes/pique-wpcom/fonts/font-awesome.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='genericons-css'  href='wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css%3Fver=3.1.css' type='text/css' media='all' />
-<link rel='stylesheet' id='wptt_front-css'  href='wp-content/plugins/wp-twitter-feeds/css/admin_style.min.css%3Fver=4.4.2.css' type='text/css' media='all' />
-<link rel='stylesheet' id='wpgform-css-css'  href='wp-content/plugins/wpgform/css/wpgform.css%3Fver=4.4.2.css' type='text/css' media='all' />
-<link rel='stylesheet' id='jetpack_css-css'  href='wp-content/plugins/jetpack/css/jetpack.css%3Fver=3.9.2.css' type='text/css' media='all' />
 <script type='text/javascript' src='wp-includes/js/jquery/jquery.js%3Fver=1.11.3'></script>
-<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js%3Fver=1.2.1'></script>
-<link rel='https://api.w.org/' href='http://www.hasparliamentadjournedyet.com/wp-json/' />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.hasparliamentadjournedyet.com/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.hasparliamentadjournedyet.com/wp-includes/wlwmanifest.xml" />
-<meta name="generator" content="WordPress 4.4.2" />
 <link rel="canonical" href="index.html" />
-<link rel='shortlink' href='http://wp.me/P7iA9d-8' />
-
-<link rel="stylesheet" href="wp-content/plugins/count-per-day/counter.css" type="text/css" />
-
-<link rel='dns-prefetch' href='http://i0.wp.com/'>
-<link rel='dns-prefetch' href='http://i1.wp.com/'>
-<link rel='dns-prefetch' href='http://i2.wp.com/'>
 <style type='text/css'>img#wpstats{display:none}</style>	<style type="text/css">
 				.pique-frontpage .pique-panel.pique-panel1 .pique-panel-background {
 				opacity:  0.5;
@@ -117,35 +103,16 @@ body.custom-background { background-color: #577d84; }
 
 		<h2>HAS PARLIAMENT ADJOURNED YET?</h2>
 <p><!--OPTION 3: lok sabha = YES, rajya sabha = YES--></p>
-<p><!--
+<p>
 <p style="text-align: center;">
-<a class="button" href="http://www.hasparliamentadjournedyet.com/category/why-adjournment/">Lok Sabha - Yes</a> <a class="minimal button" href="http://www.hasparliamentadjournedyet.com/category/why-adjournment/">Rajya Sabha - Yes</a>
+<a class="button" href="{% if page.ls.adjourned %}{{ page.ls.why }}{% else %}{{ page.ls.agenda }}{% endif %}">Lok Sabha - {% if page.ls.adjourned %}Yes{% else %}No{% endif %}</a> <a class="minimal button" href="{% if page.rs.adjourned %}{{ page.rs.why }}{% else %}{{ page.rs.agenda }}{% endif %}">Rajya Sabha - {% if page.rs.adjourned %}Yes{% else %}No{% endif %}</a>
 
+{% if page.ls.adjourned and page.rs.adjourned %}
 <h5>FRUSTRATED BY FREQUENT ADJOURNMENTS?</h5>
-
-
-
 <p style="text-align: center;"><a class="button" href="http://www.hasparliamentadjournedyet.com/write-to-your-mp/">Write to your MP</a></p>
+{% endif %}
 
-
---></p>
-<p><!-- OPTION 2: lok sabha = YES, rajya sabha = NO --><br />
-<!--
-
-<p style="text-align: center;">
-<a class="button" href="http://www.hasparliamentadjournedyet.com/category/why-adjournment/">Lok Sabha - Yes</a> <a class="minimal button" href="http://www.hasparliamentadjournedyet.com/agenda/">Rajya Sabha - No</a></p>
-
-
---></p>
-<p><!-- OPTION 1: lok sabha = NO, rajya sabha = NO--></p>
-<p style="text-align: center;"><a class="button" href="http://www.hasparliamentadjournedyet.com/agenda/">Lok Sabha &#8211; No</a> <a class="minimal button" href="http://www.hasparliamentadjournedyet.com/agenda/">Rajya Sabha &#8211; No</a></p>
-<p><!-- OPTION 4: lok sabha = NO, rajya sabha = YES --><br />
-<!--
-
-<p style="text-align: center;"><a class="button" href="http://www.hasparliamentadjournedyet.com/agenda/">Lok Sabha - No</a> <a class="minimal button" href="http://www.hasparliamentadjournedyet.com/category/why-adjournment/">Rajya Sabha - Yes</a></p>
-
-
---></p>
+</p>
 		</div><!-- .entry-content -->
 
 	</div><!-- .pique-panel-content -->
@@ -164,180 +131,6 @@ body.custom-background { background-color: #577d84; }
 
 	<footer id="colophon" class="site-footer" role="contentinfo" style="background-image: url('index.html')">
 
-			<div id="tertiary" class="widget-area footer-widget-area" role="complementary">
-				    <div id="widget-area-2" class="widget-area">
-		        <aside id="wptt_twittertweets-8" class="widget wptt_TwitterTweets"><h2 class="widget-title">Latest Tweets</h2><style>
-				.fetched_tweets.light > li{border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187);
-				border-width: 1px;
-				border-style: solid;}
-				.fetched_tweets.dark > li{
-				border-color: #444;
-				border-width: 1px;
-				border-style: solid;}</style>
-
-            <ul class="fetched_tweets light">
-                                                            <li class="tweets_avatar">
-                            <div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="wdtf-screen-name"><span class="screen_name">HasParlAdjournedYet</span><br><a href="https://twitter.com/HasParlAdjYet" target="_blank" dir="ltr">@HasParlAdjYet</a></div><div class="clear"></div></div>                            <div class="tweet_data">
-                                <a href="https://twitter.com/search?q=%23Update-" target="_blank" rel="nofollow">#Update-</a> Rajya Sabha adjourned for lunch. To meet at 2 pm for legislative business. <a href="https://twitter.com/search?q=%23sofarsosmooth" target="_blank" rel="nofollow">#sofarsosmooth</a>                            </div>
-                            <br/>
-                            <div class="clear"></div>
-                            <div class="times">
-                                <em>
-
-                                    <a href="https://www.twitter.com/HasParlAdjYet" target="_blank" title="Follow HasParlAdjYet on Twitter [Opens new window]">
-                                        1 hour ago                                    </a>
-                                </em>
-                            </div>
-                                                        <div class="clear"></div>
-                        </div><div class="clear"></div>
-                    </li>
-                                        <li class="tweets_avatar">
-                            <div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="wdtf-screen-name"><span class="screen_name">HasParlAdjournedYet</span><br><a href="https://twitter.com/HasParlAdjYet" target="_blank" dir="ltr">@HasParlAdjYet</a></div><div class="clear"></div></div>                            <div class="tweet_data">
-                                So nobody died and 'twas not a pee break. RS was adjourned for 2 min only cos Q Hr was to start at noon and MPs stormed the well at 11.58am.                            </div>
-                            <br/>
-                            <div class="clear"></div>
-                            <div class="times">
-                                <em>
-
-                                    <a href="https://www.twitter.com/HasParlAdjYet" target="_blank" title="Follow HasParlAdjYet on Twitter [Opens new window]">
-                                        1 hour ago                                    </a>
-                                </em>
-                            </div>
-                                                        <div class="clear"></div>
-                        </div><div class="clear"></div>
-                    </li>
-                                        <li class="tweets_avatar">
-                            <div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="wdtf-screen-name"><span class="screen_name">HasParlAdjournedYet</span><br><a href="https://twitter.com/HasParlAdjYet" target="_blank" dir="ltr">@HasParlAdjYet</a></div><div class="clear"></div></div>                            <div class="tweet_data">
-                                <a href="https://twitter.com/jimanish" target="_blank" rel="nofollow">@jimanish</a> Rules of Procedure only died. Some MPs stormed the Rajya Sabha well. <a href="https://twitter.com/sandygrains" target="_blank" rel="nofollow">@sandygrains</a>                            </div>
-                            <br/>
-                            <div class="clear"></div>
-                            <div class="times">
-                                <em>
-
-                                    <a href="https://www.twitter.com/HasParlAdjYet" target="_blank" title="Follow HasParlAdjYet on Twitter [Opens new window]">
-                                        1 hour ago                                    </a>
-                                </em>
-                            </div>
-                                                        <div class="clear"></div>
-                        </div><div class="clear"></div>
-                    </li>
-                                        <li class="tweets_avatar">
-                            <div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="wdtf-screen-name"><span class="screen_name">HasParlAdjournedYet</span><br><a href="https://twitter.com/HasParlAdjYet" target="_blank" dir="ltr">@HasParlAdjYet</a></div><div class="clear"></div></div>                            <div class="tweet_data">
-                                <a href="https://twitter.com/search?q=%23Update-" target="_blank" rel="nofollow">#Update-</a> Lok Sabha progresses into Zero Hour and Rajya Sabha is into its Question Hour now.                            </div>
-                            <br/>
-                            <div class="clear"></div>
-                            <div class="times">
-                                <em>
-
-                                    <a href="https://www.twitter.com/HasParlAdjYet" target="_blank" title="Follow HasParlAdjYet on Twitter [Opens new window]">
-                                        2 hours ago                                    </a>
-                                </em>
-                            </div>
-                                                        <div class="clear"></div>
-                        </div><div class="clear"></div>
-                    </li>
-                                        <li class="tweets_avatar">
-                            <div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="wdtf-screen-name"><span class="screen_name">HasParlAdjournedYet</span><br><a href="https://twitter.com/HasParlAdjYet" target="_blank" dir="ltr">@HasParlAdjYet</a></div><div class="clear"></div></div>                            <div class="tweet_data">
-                                <a href="https://twitter.com/search?q=%23update-" target="_blank" rel="nofollow">#update-</a> Rajya Sabha adjourned for 2 minutes.                            </div>
-                            <br/>
-                            <div class="clear"></div>
-                            <div class="times">
-                                <em>
-
-                                    <a href="https://www.twitter.com/HasParlAdjYet" target="_blank" title="Follow HasParlAdjYet on Twitter [Opens new window]">
-                                        2 hours ago                                    </a>
-                                </em>
-                            </div>
-                                                        <div class="clear"></div>
-                        </div><div class="clear"></div>
-                    </li>
-
-                        </ul>
-
-            </aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
-					<li>
-				<a href="http://www.hasparliamentadjournedyet.com/fun-stuff/all-of-us-have-amma/">ALL OF US HAVE AMMA</a>
-						</li>
-					<li>
-				<a href="http://www.hasparliamentadjournedyet.com/fun-stuff/children-this-is-not-a-cricket-ground/">CHILDREN, THIS IS NOT A CRICKET GROUND</a>
-						</li>
-					<li>
-				<a href="http://www.hasparliamentadjournedyet.com/why-adjournment/rajya-sabha-adjourned/">Rajya Sabha adjourned &#8211; 4 March 2016</a>
-						</li>
-					<li>
-				<a href="http://www.hasparliamentadjournedyet.com/why-adjournment/lok-sabha-adjourned-4-march-2016/">Lok Sabha adjourned &#8211; 4 March, 2016</a>
-						</li>
-					<li>
-				<a href="http://www.hasparliamentadjournedyet.com/why-adjournment/lok-sabha-adjourned-today-2/">Lok Sabha adjourned today</a>
-						</li>
-				</ul>
-		</aside>				    </div>
-
-				    <div id="widget-area-3" class="widget-area">
-		        <aside id="categories-10" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
-	<li class="cat-item cat-item-10"><a href="http://www.hasparliamentadjournedyet.com/category/fun-stuff/" >Fun Stuff</a><span class="post-count">(3)</span>
-</li>
-	<li class="cat-item cat-item-6"><a href="http://www.hasparliamentadjournedyet.com/category/why-adjournment/" title="Why was the Parliament adjourned today?">Why Adjournment?</a><span class="post-count">(3)</span>
-</li>
-		</ul>
-</aside><aside id="archives-4" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
-			<li><a href='http://www.hasparliamentadjournedyet.com/2016/03/'>March 2016</a></li>
-	<li><a href='http://www.hasparliamentadjournedyet.com/2016/02/'>February 2016</a></li>
-		</ul>
-		</aside><aside id="calendar-7" class="widget widget_calendar"><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
-	<caption>March 2016</caption>
-	<thead>
-	<tr>
-		<th scope="col" title="Monday">M</th>
-		<th scope="col" title="Tuesday">T</th>
-		<th scope="col" title="Wednesday">W</th>
-		<th scope="col" title="Thursday">T</th>
-		<th scope="col" title="Friday">F</th>
-		<th scope="col" title="Saturday">S</th>
-		<th scope="col" title="Sunday">S</th>
-	</tr>
-	</thead>
-
-	<tfoot>
-	<tr>
-		<td colspan="3" id="prev"><a href="http://www.hasparliamentadjournedyet.com/2016/02/">&laquo; Feb</a></td>
-		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next" class="pad">&nbsp;</td>
-	</tr>
-	</tfoot>
-
-	<tbody>
-	<tr>
-		<td colspan="1" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td><td><a href="http://www.hasparliamentadjournedyet.com/2016/03/04/" aria-label="Posts published on March 4, 2016">4</a></td><td><a href="http://www.hasparliamentadjournedyet.com/2016/03/05/" aria-label="Posts published on March 5, 2016">5</a></td><td>6</td>
-	</tr>
-	<tr>
-		<td>7</td><td>8</td><td id="today"><a href="http://www.hasparliamentadjournedyet.com/2016/03/09/" aria-label="Posts published on March 9, 2016">9</a></td><td>10</td><td>11</td><td>12</td><td>13</td>
-	</tr>
-	<tr>
-		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
-	</tr>
-	<tr>
-		<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
-	</tr>
-	<tr>
-		<td>28</td><td>29</td><td>30</td><td>31</td>
-		<td class="pad" colspan="3">&nbsp;</td>
-	</tr>
-	</tbody>
-	</table></div></aside>		    </div>
-
-			</div><!-- #tertiary -->
-
-		<div class="secondary-links"><ul id="menu-menu-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-8 current_page_item menu-item-39"><a href="index.html">Home</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="http://www.hasparliamentadjournedyet.com/agenda/">Watch Live</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-43"><a href="http://www.hasparliamentadjournedyet.com/faq/">FAQ</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="http://www.hasparliamentadjournedyet.com/about/">About</a></li>
-<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-113"><a href="http://www.hasparliamentadjournedyet.com/category/fun-stuff/">Fun Stuff!</a></li>
-</ul></div>
-		<div class="site-info">
-			<a href="http://wordpress.org/">Proudly powered by WordPress</a>
-			<span class="sep"> &middot; </span>
-			Theme: Pique by <a href="http://wordpress.com/themes" rel="designer">WordPress.com</a>.    </div><!-- .site-info -->
 
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -1,0 +1,13 @@
+defaults:
+  -
+    scope:
+        path: ""
+    values:
+        ls:
+            adjourned: False
+            agenda: http://164.100.47.192/Loksabha/Business/ListofBusiness.aspx
+            why: http://www.hasparliamentadjournedyet.com/category/why-adjournment/
+        rs:
+            adjourned: True
+            agenda: http://164.100.47.5/newsite/lob/newlob.aspx
+            why: http://www.hasparliamentadjournedyet.com/category/why-adjournment/
